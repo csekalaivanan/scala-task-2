@@ -1,0 +1,45 @@
+case class User(id: Int, name: String, age: Int)
+
+object UserListApp {
+  def main(args: Array[String]): Unit = {
+
+    val users = List(
+      User(1, "John", 40),
+      User(2, "Jacob", 35),
+      User(3, "Abraham", 33),
+      User(4, "Kevin", 25),
+      User(5, "Hayes", 28),
+      User(6, "Abraham", 40),
+      User(7, "Daniel", 55),
+      User(8, "Kim", 69),
+      User(9, "Lisa", 40),
+      User(10, "Jacob", 36)
+    )
+    println("All User Names:")
+    users.foreach(user => println(user.name))
+
+    val maxAge = users.map(_.age).max
+    val oldestUsers = users.filter(_.age == maxAge)
+    println("\nOldest Users:")
+    oldestUsers.foreach(u => println(u.name))
+
+    val minAge = users.map(_.age).min
+    val youngestUsers = users.filter(_.age == minAge)
+    println("\nYoungest Users:")
+    youngestUsers.foreach(u => println(u.name))
+
+    val age40Users = users.filter(_.age == 40)
+    println("\nUsers with age 40:")
+    age40Users.foreach(u => println(u.name))
+
+    
+    val jacobIds = users.filter(_.name == "Jacob").map(_.id)
+    println("\nIDs of users named Jacob:")
+    jacobIds.foreach(println)
+
+    
+    val abrahamAges = users.filter(_.name == "Abraham").map(_.age)
+    println("\nAges of users named Abraham:")
+    abrahamAges.foreach(println)
+  }
+}

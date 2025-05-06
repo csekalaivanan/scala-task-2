@@ -1,0 +1,46 @@
+case class Student(name: String, mark: Int)
+
+object StudentListApp {
+  def main(args: Array[String]): Unit = {
+
+
+    val students = List(
+      Student("John", 80),
+      Student("Jacob", 99),
+      Student("Abraham", 75),
+      Student("Kevin", 66),
+      Student("Hayes", 98),
+      Student("Abraham", 93),
+      Student("Daniel", 90),
+      Student("Kim", 45),
+      Student("Lisa", 54),
+      Student("Jacob", 88)
+    )
+
+   
+    println("All student names:")
+    students.foreach(s => println(s.name))
+
+    
+    val top5 = students.sortBy(_.mark).reverse.take(5)
+    println("\nTop 5 students (Descending order):")
+    top5.foreach(s => println(s.name))
+
+
+    val bottom5 = students.sortBy(_.mark).take(5)
+    println("\nBottom 5 students (Ascending order):")
+    bottom5.foreach(s => println(s.name))
+
+
+    val average = students.map(_.mark).sum.toDouble / students.length
+    println(f"\nAverage mark of all students: $average%.2f")
+
+
+    val abrahamMarks = students.filter(_.name == "Abraham").map(_.mark).sum
+    println(s"\nTotal marks of all Abrahams: $abrahamMarks")
+
+
+    println("\nStudents with marks greater than 90:")
+    students.filter(_.mark > 90).foreach(s => println(s.name))
+  }
+}

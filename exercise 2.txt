@@ -1,0 +1,36 @@
+object Exercise {
+  def main(args: Array[String]): Unit = {
+
+    
+    var studentMap = Map(
+      1 -> "John",
+      2 -> "Jacob",
+      3 -> "Abraham",
+      4 -> "Kevin",
+      5 -> "Hayes"
+    )
+
+    
+    println("All student names:")
+    studentMap.values.foreach(println)
+
+    
+    studentMap = studentMap.updated(2, "Stephen")
+    println("\nAfter updating id 2 to Stephen:")
+    studentMap.values.foreach(println)
+
+    
+    studentMap += (6 -> "Titus")
+    println("\nAfter adding id 6 as Titus:")
+    studentMap.values.foreach(println)
+
+   
+    studentMap -= 2
+     println("\nAfter removing student with id 2:")
+    studentMap.values.foreach(println)
+
+    
+    println("\nStudent name with id 3:")
+    println(studentMap(3))
+  }
+}

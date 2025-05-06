@@ -1,0 +1,31 @@
+import scala.collection.mutable.ArrayBuffer
+
+object Numbers {
+  def main(args: Array[String]): Unit = {
+    val numbers = ArrayBuffer[Int]()                     
+    numbers ++= Seq(4, 5, 6, 7)                          
+    println("Initial: " + numbers)                      
+
+    numbers ++= Seq(8, 9, 10)                            
+    println("After Append: " + numbers)                 
+
+    numbers.prependAll(Seq(1, 2, 3))                     
+    println("After Prepend: " + numbers)                
+
+    numbers -= 9                                         
+    numbers -= 10                                        
+    println("After Removing 9 and 10: " + numbers)       
+
+    val range15 = numbers.filter(n => n >= 1 && n <= 5)  
+    println("Between 1 and 5: " + range15)               
+
+    numbers -= 3                                         
+    println("After Removing 3: " + numbers)              
+
+    numbers.insert(2, 3)                                 
+    println("After Inserting 3: " + numbers)             
+
+    numbers.remove(0, 4)                                 
+    println("After Removing First 4: " + numbers)        
+  }
+}
